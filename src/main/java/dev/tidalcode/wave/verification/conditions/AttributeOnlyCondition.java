@@ -33,6 +33,6 @@ public class AttributeOnlyCondition extends Condition {
                 .ignoring(StaleElementReferenceException.class)
                 .throwing(TestAssertionError.class)
                 .withMessage(String.format("Failed to find attribute '%s'", attribute))
-                .until(e -> e.invokeCommand(GetAttribute.class));
+                .until(e -> e.withAttribute(attribute).invokeCommand(GetAttribute.class));
     }
 }
